@@ -1,0 +1,37 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PazarBet</title>
+</head>
+<body>
+  <header>
+    <!-- Navigation Bar -->
+  </header>
+
+  <section id="create-page" class="auth">
+
+      <div class="container">
+        <h1>Are you sure you want to delete your profile?</h1>
+          <!-- Delete Profile Form -->
+        <form id='delete' method="post" action="{% url 'delete user' pk=request.user.pk %}">
+        {{ form }}
+        <!-- Confirm Button -->
+        <input class="btn submit" type="submit" value="Yes">
+            {% csrf_token %}
+
+        </form>
+      </div>
+    <!-- End Delete Profile Form -->
+  </section>
+  <!-- Footer -->
+  <footer>
+      &copy;PazarBet Team 2022. All rights reserved.
+  </footer>
+  <!-- End Footer -->
+</body>
+</html>

@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'PazarBet.common',
+    'PazarBet.accounts',
 ]
 
 MIDDLEWARE = [
@@ -94,5 +95,7 @@ STATICFILES_DIRS = (
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'accounts.AppUser'
 
 LOGIN_REDIRECT_URL = reverse_lazy('index')
