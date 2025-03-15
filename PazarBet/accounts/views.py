@@ -11,6 +11,7 @@ UserModel = get_user_model()
 
 class SignInView(auth_views.LoginView):
     template_name = 'accounts/login-page.html'
+    redirect_authenticated_user = True
 
 
 class SignUpView(views.CreateView):
@@ -24,6 +25,7 @@ class SignUpView(views.CreateView):
         return response
 
 
+# log out should be post method
 class SignOutView(auth_views.LogoutView):
     next_page = reverse_lazy('index')
 

@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,5 +11,9 @@
     <h1>Hello PazarBet</h1>
     <h2>testing html page</h2>
     <h3>add home page later!</h3>
+    <form action="{% url 'logout user' %}" method="post">
+        {% csrf_token %}
+        <button type="logout" class="btn btn-danger">Logout</button>
+      </form>
 </body>
 </html>
