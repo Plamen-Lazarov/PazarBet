@@ -1,11 +1,13 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casino1</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Casino</title>
+    <link rel="stylesheet" href="{% static '/style.css' %}">
 </head>
 <body>
     <header class="header">
@@ -15,32 +17,55 @@
             <a href="#">Games</a>
             <a href="#">Tournaments</a>
             <a href="#">Contact</a>
+            <div class="login-icon" onclick="openLoginPopup()"></div>
         </nav>
     </header>
     
     <section class="promo">
-        <img src="../Casino site/images/sac.jpg" alt="Gambling Background" class="promo-bg"> <!-- Променен елемент -->
-        <h2>777</h2>
+        <!-- <img src="../Casino site/images/sac.jpg" alt="Gambling Background" class="promo-bg"> -->
+        <!-- <h2>777</h2>
         <p>Today’s Promotions</p>
-        <button>Play Now</button>
+        <button>Play Now</button> -->
     </section>
 
     <section class="steps">
-        <div>01 Register</div>
-        <div>02 Get Ready</div>
-        <div>03 Enjoy</div>
+        <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-title">Register</div>
+            <div class="step-description">Create your account to get started</div>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-title">Choose a Game</div>
+            <div class="step-description">Select a game that you want to play</div>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-title">Spin & Win!</div>
+            <div class="step-description">Place your bet and enjoy the game</div>
+        </div>
     </section>
     
     <section class="games">
         <h2>Related Games</h2>
+        <div class="game-images">
+            <img src="{% static '/image/slot.jpg' %}" alt="Game 1" class="game-img">
+            <img src="../../staticfiles/image/blackj.jpg" alt="Game 2" class="game-img">
+            <img src="../../staticfiles/image/roulette.jpg" alt="Game 3" class="game-img">
+            <img src="../../staticfiles/image/pinko.png" alt="Game 4" class="game-img">
+        </div>
         <div class="game-list">
-            <div class="game">Game 1</div>
-            <div class="game">Game 2</div>
-            <div class="game">Game 3</div>
+            <div class="game">Slot machine</div>
+            <div class="game">Black Jack</div>
+            <div class="game">Roulette</div>
+            <div class="game">Plinko balls</div>
         </div>
     </section>
 
     <section class="free-spin">
+        <div class="free-spin-image">
+            <img src="../../staticfiles/image/poker-159973_1280.png" alt="Free Spin Bonus" class="free-spin-img">
+        </div>
         <h2>Unlock Free Spin</h2>
         <p>Get a chance to win free spins by registering today!</p>
         <button>Sign Up</button>
@@ -68,5 +93,10 @@
         <p>&copy; 2025 PazarBet. All Rights Reserved.</p>
     </footer>
 
+    <!-- <script>
+        function openLoginPopup() {
+            alert("Login popup will open here!");
+        }
+    </script> -->
 </body>
 </html>
