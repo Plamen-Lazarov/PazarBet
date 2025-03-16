@@ -9,21 +9,59 @@ body {
 }
 
 .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background: rgba(46, 1, 1, 0.9);
-    padding: 20px;
-    animation: fadeIn 2s ease-in;
+    padding: 15px 30px;
 }
 
-nav a {
+.logo img {
+    height: 70px; 
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu a {
     color: white;
-    margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
-nav a:hover {
+.nav-menu a:hover {
     color: yellow;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.auth-buttons button {
+    background: none;
+    border: 2px solid white;
+    color: white;
+    padding: 8px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.auth-buttons button i {
+    font-size: 18px;
+}
+
+.auth-buttons button:hover {
+    background: white;
+    color: black;
 }
 
 .promo {
@@ -60,6 +98,8 @@ nav a:hover {
     color: white;
     z-index: 1;
 } */
+
+
 button {
     background-color: rgb(255, 191, 0);
     color: black;
