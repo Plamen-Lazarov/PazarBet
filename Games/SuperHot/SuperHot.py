@@ -2,6 +2,11 @@ import random
 
 
 def spin_reels():
+    #1 - fgjdfbgkjgf
+    #1 - fgjdfbgkjgf
+    #1 - fgjdfbgkjgf
+    #1 - fgjdfbgkjgf
+    
     symbols = ["🍒", "🍋", "🍊", "🍉", "⭐", "7", "🍇", "🍑"]
     return [[random.choice(symbols) for _ in range(4)] for _ in range(4)]
 
