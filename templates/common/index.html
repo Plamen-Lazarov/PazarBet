@@ -1,19 +1,72 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Casino1</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello PazarBet</h1>
-    <h2>testing html page</h2>
-    <h3>add home page later!</h3>
-    <form action="{% url 'logout user' %}" method="post">
-        {% csrf_token %}
-        <button type="logout" class="btn btn-danger">Logout</button>
-      </form>
+    <header class="header">
+        <h1>PazarBet</h1>
+        <nav>
+            <a href="#">About Us</a>
+            <a href="#">Games</a>
+            <a href="#">Tournaments</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    
+    <section class="promo">
+        <img src="../Casino site/images/sac.jpg" alt="Gambling Background" class="promo-bg"> <!-- Променен елемент -->
+        <h2>777</h2>
+        <p>Today’s Promotions</p>
+        <button>Play Now</button>
+    </section>
+
+    <section class="steps">
+        <div>01 Register</div>
+        <div>02 Get Ready</div>
+        <div>03 Enjoy</div>
+    </section>
+    
+    <section class="games">
+        <h2>Related Games</h2>
+        <div class="game-list">
+            <div class="game">Game 1</div>
+            <div class="game">Game 2</div>
+            <div class="game">Game 3</div>
+        </div>
+    </section>
+
+    <section class="free-spin">
+        <h2>Unlock Free Spin</h2>
+        <p>Get a chance to win free spins by registering today!</p>
+        <button>Sign Up</button>
+    </section>
+    
+    <section class="pricing">
+        <h2>Our Pricing Plan</h2>
+        <div class="pricing-list">
+            <div class="plan">
+                <h3>Trial Plan</h3>
+                <p>Free</p>
+            </div>
+            <div class="plan">
+                <h3>Standard Plan</h3>
+                <p>$9.99</p>
+            </div>
+            <div class="plan">
+                <h3>Platinum Plan</h3>
+                <p>$99.99</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <p>&copy; 2025 PazarBet. All Rights Reserved.</p>
+    </footer>
+
 </body>
 </html>
