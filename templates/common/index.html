@@ -1,10 +1,13 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casino</title>
-    <link rel="stylesheet" href="../../staticfiles/style.css">
+    <link rel="stylesheet" href="{% static '/style.css' %}">
 </head>
 <body>
     <header class="header">
@@ -46,7 +49,7 @@
     <section class="games">
         <h2>Related Games</h2>
         <div class="game-images">
-            <img src="../../staticfiles/image/slot.jpg" alt="Game 1" class="game-img">
+            <img src="{% static '/image/slot.jpg' %}" alt="Game 1" class="game-img">
             <img src="../../staticfiles/image/blackj.jpg" alt="Game 2" class="game-img">
             <img src="../../staticfiles/image/roulette.jpg" alt="Game 3" class="game-img">
             <img src="../../staticfiles/image/pinko.png" alt="Game 4" class="game-img">
