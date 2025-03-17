@@ -1,18 +1,30 @@
 from django.urls import reverse_lazy
 from django.views import generic as views
-from django.contrib.auth import views as auth_views, get_user_model, login
+from django.contrib.auth import views as auth_views, get_user_model, login, authenticate
 # from django.shortcuts import render
 
+from django.http import JsonResponse
+from django.contrib.auth.forms import AuthenticationForm
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 from PazarBet.accounts.forms import UserCreateForm
 
 UserModel = get_user_model()
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class SignInView(auth_views.LoginView):
-    template_name = 'common/index.html'
-    redirect_authenticated_user = True
-
+    def post(self, request):
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return JsonResponse({'success': True})
+        return JsonResponse({'success': False})
 
 class SignUpView(views.CreateView):
     template_name = 'common/index.html'

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casino</title>
     <link rel="stylesheet" href="{% static '/style.css' %}">
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <header class="header">
@@ -26,7 +26,7 @@
         <div class="auth-buttons">
             <!-- if the user has not created a profile -->
             {% if not request.user.is_authenticated %}
-                    <button class="login-btn" onclick="window.location.href='{% url 'login user' %}'">
+                    <button class="login-btn" onclick="showLoginDiv()">
                         <i class="fas fa-sign-in-alt"></i> Log In
                     </button>
                     <button class="signup-btn" onclick="window.location.href='{% url 'register user' %}'">
@@ -52,32 +52,12 @@
 
     </header>
 
-    <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-     <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-    <!-- grozno e ama raboti (kateto da go pravi krasivo ;) -->
-     <!-- moje da go vkarash tva v accounts/login-page.html i da go importnesh tuk za
-      da ne stava mn dulug index.html -->
+    <!-- login html-a e premesten v accounts/login-page.html za da e po chist koda(inedx.html)
+     moje da pravish promeni tam -->
 
-    <div class="login-modal" {% if '/accounts/login/' != request.path %}style="display: none;"{% endif %}>
-        <div class="modal-content">
-            <span class="close-btn" onclick="window.location.href='{% url 'index' %}'">&times;</span>
-            <h2>Login</h2>
-            <form method="post" action="{% url 'login user' %}">
-                <div class="container">
-                    <div class="brand-logo"></div>
-                    {{ form }}
-                    <input type="hidden" name="next" value="{{ next }}">
-    
-                    <input class="btn submit" type="submit" value="Login">
-                    {% csrf_token %}
-                </div>
-            </form>
-        </div>
-    </div>
+    {% include 'accounts/login-page.html' %}
 
     <!-- trqbva da stane sushtoto i za register -->
-    <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-     <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
     
     <section class="promo">
         <!-- <img src="../Casino site/images/sac.jpg" alt="Gambling Background" class="promo-bg"> -->
@@ -123,7 +103,7 @@
 
     <section class="free-spin">
         <div class="free-spin-image">
-            <img src=".{% static '/image/poker-159973_1280.png' %}" alt="Free Spin Bonus" class="free-spin-img">
+            <img src="{% static '/image/poker-159973_1280.png' %}" alt="Free Spin Bonus" class="free-spin-img">
         </div>
         <h2>Unlock Free Spin</h2>
         <p>Get a chance to win free spins by registering today!</p>
