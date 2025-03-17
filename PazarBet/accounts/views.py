@@ -10,12 +10,12 @@ UserModel = get_user_model()
 
 
 class SignInView(auth_views.LoginView):
-    template_name = 'accounts/login-page.html'
+    template_name = 'common/index.html'
     redirect_authenticated_user = True
 
 
 class SignUpView(views.CreateView):
-    template_name = 'accounts/register-page.html'
+    template_name = 'common/index.html'
     form_class = UserCreateForm
     success_url = reverse_lazy('index')
 
