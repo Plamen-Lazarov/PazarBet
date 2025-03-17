@@ -1,14 +1,15 @@
 from pathlib import Path
 
 from django.urls import reverse_lazy
+from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)p9%2pn1x!&rn@l14z!@d+n8=rgq7zlsoyc-qph#5s7ts(nu5h'
+SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -93,6 +94,8 @@ STATICFILES_DIRS = (
     BASE_DIR / 'staticfiles',
 )
 
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SECURE = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
