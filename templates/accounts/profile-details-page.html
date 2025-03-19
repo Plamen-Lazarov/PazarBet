@@ -8,17 +8,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PazarBet</title>
+    <link rel="stylesheet" href="{% static '/style.css' %}">
+
 </head>
 
 <body>
 <div id="box">
-    <header>
-        <!-- Navigation Bar -->
+    <header class="header">
+        <div class="logo">
+            <img src="{% static '/image/coinlogo.png' %}" alt="PazarBet Logo">
+        </div>
+    
+        <nav class="nav-menu">
+            <a href="#">About Us</a>
+            <a href="#">Games</a>
+            <a href="#">Tournaments</a>
+            <a href="#">Contact</a>
+        </nav>
+
+        <div class="auth-buttons">
+            <!-- if the user has not created a profile -->
+            {% if not request.user.is_authenticated %}
+                    <button class="login-btn" onclick="showLoginDiv()">
+                        <i class="fas fa-sign-in-alt"></i> Log In
+                    </button>
+                    <button class="signup-btn" onclick="window.location.href='{% url 'register user' %}'">
+                        <i class="fas fa-user-plus"></i> Sign Up
+                    </button> 
+            <!-- if the user has created a profile -->
+            {% else %}
+                
+                <button class="add-btn" onclick="window.location.href='{% url 'edit user' pk=user.pk %}'">
+                    <i class="fas fa-sign-in-alt"></i> Add Money
+                </button>
+                <button class="profile-btn" onclick="window.location.href='{% url 'details user' pk=user.pk %}'">
+                    <i class="fas fa-sign-in-alt"></i> Profile
+                </button>
+                <form action="{% url 'logout user' %}" method="post" style="display: inline;">
+                    {% csrf_token %}  <!-- Required for CSRF protection -->
+                    <button type="submit" class="logout-btn">
+                        <i class="fas fa-user-plus"></i> Logout
+                    </button>
+                </form>
+            {% endif %}
+        </div> 
+
     </header>
 
-    <!-- profile details section -->
+    {% include 'accounts/login-page.html' %}
 
-    <!-- footer -->
+    <div>
+        <h1>username: {{object.username}}</h1>
+        <h2>Gender: {{object.gender}}</h2>
+        <h2>First name: {{object.first_name}}</h2>
+        <h2>Last name: {{object.last_name}}</h2>
+
+        {% if is_owner %}
+        <h2>Balance: {{object.balance}}</h2>
+        {% endif %}
+    </div>
+    
     <footer>
         &copy;PazarBet Team 2022. All rights reserved.
     </footer>

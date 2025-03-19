@@ -1,6 +1,7 @@
 from django.urls import reverse_lazy
 from django.views import generic as views
 from django.contrib.auth import views as auth_views, get_user_model, login, authenticate
+from django.contrib.auth.mixins import LoginRequiredMixin
 # from django.shortcuts import render
 
 from django.http import JsonResponse
@@ -48,15 +49,12 @@ class UserDetailsView(views.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
         context['is_owner'] = self.request.user == self.object
-
-        # add acc data
 
         return context
 
 
-class UserEditView(views.UpdateView):
+class UserEditView(LoginRequiredMixin, views.UpdateView):
 
     template_name = 'accounts/profile-edit-page.html'
     model = UserModel
