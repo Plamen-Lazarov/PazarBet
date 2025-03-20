@@ -42,8 +42,8 @@ class AppUser(auth_models.AbstractUser):
 
     last_name = models.CharField(
         max_length=MAX_LEN_LAST_NAME,
-        null=False,
-        blank=False,
+        null=True,
+        blank=True,
         validators=(
             validators.MinLengthValidator(MIN_LEN_LAST_NAME),
             validate_only_letters,
@@ -57,6 +57,8 @@ class AppUser(auth_models.AbstractUser):
     )
 
     gender = models.CharField(
+        null=True,
+        blank=True,
         choices=Gender.choices(),
         max_length=Gender.max_len(),
     )

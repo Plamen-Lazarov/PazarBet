@@ -55,10 +55,12 @@ class UserDetailsView(views.DetailView):
 
 
 class UserEditView(LoginRequiredMixin, views.UpdateView):
-
     template_name = 'accounts/profile-edit-page.html'
     model = UserModel
     fields = ('first_name', 'last_name', 'gender', 'email')
+
+    def get_object(self, queryset=None):
+        return self.request.user
 
     def get_success_url(self):
         return reverse_lazy('details user', kwargs={

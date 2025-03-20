@@ -8,7 +8,7 @@ UserModel = get_user_model()
 @admin.register(UserModel)
 class UserAdmin(auth_admin.UserAdmin):
     form = UserEditForm
-    add_form = UserCreateForm
+    # add_form = UserCreateForm
 
     list_display = ('username', 'email', 'first_name', 'last_name', 'balance', 'gender', 'is_staff')
 
