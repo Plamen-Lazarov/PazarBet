@@ -86,12 +86,39 @@
     
     <section class="games">
         <h2>Related Games</h2>
-        <div class="game-images">
+    <div class="game-images">
+        <div class="game-img-container">
             <img src="{% static '/image/slot.jpg' %}" alt="Game 1" class="game-img">
-            <img src="{% static '/image/blackj.jpg' %}" alt="Game 2" class="game-img">
-            <img src="{% static '/image/roulette.jpg' %}" alt="Game 3" class="game-img">
-            <img src="{% static '/image/pinko.png' %}" alt="Game 4" class="game-img">
+            <div class="rules-overlay">
+                <span>Правила</span>
+                <p>Въртете барабаните и печелете!</p>
+            </div>
         </div>
+
+        <div class="game-img-container">
+            <img src="{% static '/image/blackj.jpg' %}" alt="Game 2" class="game-img">
+            <div class="rules-overlay">
+                <span>Правила</span>
+                <p>Събери 21 точки, без да надхвърлиш.</p>
+            </div>
+        </div>
+
+        <div class="game-img-container">
+            <img src="{% static '/image/roulette.jpg' %}" alt="Game 3" class="game-img">
+            <div class="rules-overlay">
+                <span>Правила</span>
+                <p>Познай къде ще падне топчето.</p>
+            </div>
+        </div>
+
+        <div class="game-img-container">
+            <img src="{% static '/image/pinko.png' %}" alt="Game 4" class="game-img">
+            <div class="rules-overlay">
+                <span>Правила</span>
+                <p>Пускай топчета и печели точки.</p>
+            </div>
+        </div>
+    </div>
         <div class="game-list">
             <div class="game">Slot machine</div>
             <div class="game">Black Jack</div>

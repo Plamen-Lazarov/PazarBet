@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('bac.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(46, 1, 1, 0.9);
+    padding: 15px 30px;
+    /* padding-bottom: 432px; */
+}
+.logo img {
+    height: 70px; 
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: yellow;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.auth-buttons button {
+    background: none;
+    border: 2px solid white;
+    color: white;
+    padding: 8px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.auth-buttons button i {
+    font-size: 18px;
+}
+
+.auth-buttons button:hover {
+    background: white;
+    color: black;
+}
+.error-404 {
+    font-size: 120px;
+    font-weight: bold;
+    text-align: center;
+    /* margin-top: 20%; */
+    color: rgb(125, 1, 1);
+    background: rgba(46, 1, 1, 0.9);
+    padding-bottom: 178px;
+    padding-top: 100px;
+}
+.footer {
+    background: rgba(46, 1, 1, 1);
+    padding: 20px;
+    margin-top: 0px;
+}
